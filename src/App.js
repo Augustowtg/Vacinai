@@ -5,7 +5,11 @@ import Button from './core/components/Button';
 function App() {
   return (
     <div className="App">
-      <Button>uhio</Button>
+      <h1>VacinAí </h1>
+      <h4>Para Não Vacinados</h4>
+      <Button>Posto de Vacinação</Button>
+      <h4>Para Vacinados</h4>
+      <Button>Estabelecimento com Descontos</Button>
     </div>
   );
 }
