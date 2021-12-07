@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <p id="demo">Clique no botão para receber sua localização em Latitude e Longitude:</p>
+    <button onclick="getLocation()">Clique Aqui</button>
+
+
+    Read more: http://www.linhadecodigo.com.br/artigo/3653/usando-geolocalizacao-com-html5.aspx#ixzz7EOHEtfmd
+    <title>Add Map</title>
+
+    <style type="text/css">
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 100vh;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+    </style>
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            const uluru = { lat: -8.0463404, lng: -34.9233807 };
+            const outherPoit = { lat: -25.363, lng: 131.044 };
+
+            // The map, centered at Uluru
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 4,
+                center: uluru,
+            });
+            // The marker, positioned at Uluru
+            const marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+                title: "Eu"
+            });
+            new google.maps.Marker({
+                position: outherPoit,
+                map: map,
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA5YYJQqGugyiDwoCcvEtIo6ivfzSpR5k&callback=initMap&libraries=&v=weekly"
+        async></script>
+    <script>
+        var x = document.getElementById("demo");
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+            else { x.innerHTML = "O seu navegador não suporta Geolocalização."; }
+        }
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+        }
+
+
+        // Read more: http://www.linhadecodigo.com.br/artigo/3653/usando-geolocalizacao-com-html5.aspx#ixzz7EOH7WlFu
+    </script>
+</body>
+
+</html>
