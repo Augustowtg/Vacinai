@@ -4,7 +4,7 @@ import { ButtonStyled } from './styles';
 
 function Button(props) {
   return (
-      <ButtonStyled>
+      <ButtonStyled bgColor={props.bgColor}>
           {props.children}
       </ButtonStyled>
   );
