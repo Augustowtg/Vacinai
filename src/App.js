@@ -1,16 +1,19 @@
-import React from 'react';
-import './App.css';
-import Button from './core/components/Button';
+import React from "react";
+
+// MotherBoard
+import { ThemeProvider } from 'styled-components';
+import theme from "./styled/MotherBoardStyled";
+
+// Router
+import Router from "./router";
 
 function App() {
   return (
-    <div className="App">
-      <h1>VacinAí </h1>
-      <h4>Para Não Vacinados</h4>
-      <Button>Posto de Vacinação</Button>
-      <h4>Para Vacinados</h4>
-      <Button>Estabelecimento com Descontos</Button>
-    </div>
+    <section>
+      <ThemeProvider theme={theme}>
+        <Router />
+      </ThemeProvider>
+    </section>
   );
 }
 
