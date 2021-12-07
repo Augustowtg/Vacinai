@@ -2,11 +2,11 @@ import React from 'react';
 
 // import { Container } from './styles';
 
-function NotFound() {
+function VaccinationMap() {
   return (
       <>
       </>
   );
 }
 
-export default NotFound;
+export default VaccinationMap;
