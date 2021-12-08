@@ -27,10 +27,9 @@
         
         <div id="map"></div>
 
-        <a class="btn" href="/descontos.html">Postos de vacinação</a>
+        <a class="btn" href="/estabelecimentos-descontos.html">Postos de vacinação</a>
         <a class="btn" href="/index.html">Voltar</a>
     </section>
-    
 
     <!-- Api -->
     <script
@@ -41,24 +40,21 @@
     <script>
         // Initialize and add the map
         function initMap() {
-            // The location of Uluru
-            const uluru = { lat: -8.0463404, lng: -34.9233807 };
-
-            // The map, centered at Uluru
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 4,
-                center: uluru,
-            });
-
-            // The marker, positioned at Uluru
-            const marker = new google.maps.Marker({
-                position: uluru,
-                map: map,
-                title: "Você"
+            let data = {
+                resource_id: '297515ac-224d-446d-86b8-5cb3a431a7aa', // the resource id
+                limit: 5, // get 5 results
+                q: 'jones' // query for 'jones'
+            };
+            $.ajax ({
+                    url: 'http://dados.recife.pe.gov.br/api/3/action/datastore_search',
+                    data: data,
+                    dataType: 'jsonp',
+                    success: function(data) {
+                    alert('Total de resultados encontrados: ' + data.result.total);
+                }
             });
         }
     </script>
-
 </body>
 
 </html>
