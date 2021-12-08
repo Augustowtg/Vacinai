@@ -10,20 +10,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Css -->
-    <link rel="stylesheet" href="./styles/reset.css">
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="./styles/vacina.css">
+    <link rel="stylesheet" href="./assets/styles/reset.css">
+    <link rel="stylesheet" href="./assets/styles/main.css">
+    <link rel="stylesheet" href="./assets/styles/vacina.css">
 </head>
 
 <body>
+    <style>
+        body {
+            color: white;
+        }
+    </style>
     <header>
         <h1>VacinAí</h1>
+        <p id="demo">Clique no botão para receber sua localização em Latitude e Longitude:</p>
+
+        <button onclick="getLocation()">Permitir</button>
+        <button onclick="backToHome()">Não permitir</button>
     </header>
 
     <div id="map"></div>
 
-    <a class="btn" href="/descontos.html">Postos de vacinação</a>
-    <a class="btn" href="/index.html">Voltar</a>
+    <a class="btn" href="./estabelecimentos-descontos.html">Postos de vacinação</a>
+    <a class="btn" href="./index.html">Voltar</a>
 
     <!-- Api -->
     <script
@@ -33,15 +42,59 @@
 
 
     <script>
+
+
+        var x = document.getElementById("demo");
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+        }
+
+        function backToHome() {
+            if (window.location.pathname = "./index.html") { }
+        }
+
         let username = 'imunizacao_public';
         let password = 'qlto5t&7r_@+#Tlstigi';
         let url = "http://dados.recife.pe.gov.br/pt_BR/api/3/action/datastore_search";
         let headers = new Headers();
 
-        let response = null ; 
+        let response = {};
 
         let data = new FormData();
         data.append("resource_id", 'dbf660d2-1ee5-451a-94ca-7c316e50d0ad');
+
+        const InitMap = () => {
+            // Initialize and add the map
+            function initMap() {
+                response.forEach(element => {
+                    const latitide = element.latitude;
+                    const longitude = element.longitude;
+                    const title = element.local;
+                    console.log(element);
+
+                    // The map, centered at Uluru
+                    const user = new google.maps.Map(document.getElementById("map"), {
+                        position: { lat: position.coords.latitude, lng: position.coords.longitude },
+                        zoom: 4,
+                        center: uluru,
+                    });
+
+                    // The marker, positioned at Uluru
+                    new google.maps.Marker({
+                        position: { lat: latitide, lng: longitude },
+                        map: map,
+                        title: local
+                    });
+                });
+            }
+        }
 
         headers.append('Authorization', 'Basic' + (username + ":" + password));
         fetch(url, {
@@ -51,7 +104,7 @@
             .then((responseJson) => {
                 response = responseJson.result.records;
                 console.log(response);
-
+                InitMap()
                 // this.setState({
                 //     data: responseJson
                 // })
@@ -60,25 +113,6 @@
                 console.error(error);
             });
 
-
-        // Initialize and add the map
-        function initMap() {
-            // The location of Uluru
-            const uluru = { lat: -8.0463404, lng: -34.9233807 };
-
-            // The map, centered at Uluru
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 4,
-                center: uluru,
-            });
-
-            // The marker, positioned at Uluru
-            const marker = new google.maps.Marker({
-                position: uluru,
-                map: map,
-                title: "Você"
-            });
-        }
     </script>
 </body>
 
