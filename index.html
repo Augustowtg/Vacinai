@@ -4,6 +4,15 @@
 <head>
     <title>VacinAí</title>
 
+    <!-- Manifest -->
+    <link rel="manifest" href="./manifest.json">
+
+    <!-- icon -->
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/img/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="./assets/img/icon-256x256.png">
+    <link rel="icon" type="image/png" sizes="384x384" href="./assets/img/icon-384x384.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="./assets/img/icon-512x512.png">
+
     <!-- Meta tags -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,6 +37,23 @@
             </section>
         </main>
     </section>
+
+    <!-- service-worker -->
+    <script>
+        if ("service-worker" in navigator) {
+            navigator.serviceWorker.register("/service-worker.js");
+
+            let refresh;
+
+            navigator.serviceWorker.addEventListener("controllerchange", function () {
+                if (refresh) {
+                    return;
+                }
+                window.location.reload();
+                refresh = true();
+            });
+        }
+    </script>
 </body>
 
 </html>
