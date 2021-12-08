@@ -21,16 +21,14 @@
 
         let data = new FormData();
         data.append("resource_id", 'dbf660d2-1ee5-451a-94ca-7c316e50d0ad');
-        data.append("limit", '5');
 
         headers.append('Authorization', 'Basic' + (username + ":" + password));
         fetch(url, {
             method: "POST",
-            body: data,
-
+            body: data
         }).then((response) => response.json())
             .then((responseJson) => {
-                console.log(responseJson);
+                console.log(responseJson.result.records);
 
                 // this.setState({
                 //     data: responseJson

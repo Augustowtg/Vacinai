@@ -29,15 +29,38 @@
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA5YYJQqGugyiDwoCcvEtIo6ivfzSpR5k&callback=initMap&libraries=&v=weekly"
         async>
-    </script>
+        </script>
 
-    <script> 
-    function Get(url){ 
-        var
-    }
-    </script>
 
     <script>
+        let username = 'imunizacao_public';
+        let password = 'qlto5t&7r_@+#Tlstigi';
+        let url = "http://dados.recife.pe.gov.br/pt_BR/api/3/action/datastore_search";
+        let headers = new Headers();
+
+        let response = null ; 
+
+        let data = new FormData();
+        data.append("resource_id", 'dbf660d2-1ee5-451a-94ca-7c316e50d0ad');
+
+        headers.append('Authorization', 'Basic' + (username + ":" + password));
+        fetch(url, {
+            method: "POST",
+            body: data
+        }).then((response) => response.json())
+            .then((responseJson) => {
+                response = responseJson.result.records;
+                console.log(response);
+
+                // this.setState({
+                //     data: responseJson
+                // })
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+
+
         // Initialize and add the map
         function initMap() {
             // The location of Uluru
