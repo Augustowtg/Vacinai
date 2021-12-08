@@ -25,6 +25,7 @@
 
         headers.append('Authorization', 'Basic' + (username + ":" + password));
         fetch(url, {
+            method: "POST",
             body: data,
 
         }).then((response) => response.json())
