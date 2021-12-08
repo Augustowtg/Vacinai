@@ -57,7 +57,7 @@
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
             }
-            else { x = window.location.pathname=="./index.html" }
+            else { x = window.location.href="./" }
         }
         function showPosition(position) {
             x.innerHTML = "Latitude: " + position.coords.latitude +

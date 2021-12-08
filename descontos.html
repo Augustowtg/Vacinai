@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>VacinAí</title>
+    
+    <!-- Metadate tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/descontos.css">
+</head>
+
+<body>
+  
+    <h1>VacinAí</h1>
+
+    <a href="./teste/teste.html">Clica aqui</a>
+
+    <!-- Main Section -->
+    <section>
+        <h1>Descontos de vacinação</h1>
+        
+        <div id="map"></div>
+
+        <a class="btn" href="/descontos.html">Postos de vacinação</a>
+        <a class="btn" href="/index.html">Voltar</a>
+    </section>
+    
+
+    <!-- Api -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA5YYJQqGugyiDwoCcvEtIo6ivfzSpR5k&callback=initMap&libraries=&v=weekly"
+        async>
+        </script>
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            const uluru = { lat: -8.0463404, lng: -34.9233807 };
+
+            // The map, centered at Uluru
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 4,
+                center: uluru,
+            });
+
+            // The marker, positioned at Uluru
+            const marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+                title: "Você"
+            });
+        }
+    </script>
+
+</body>
+
+</html>
