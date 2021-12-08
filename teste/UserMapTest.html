@@ -2,7 +2,8 @@
 <html lang="pt-BR">
 <head>
     <p id="demo">Clique no botão para receber sua localização em Latitude e Longitude:</p>
-    <button onclick="getLocation()">Clique Aqui</button>
+    <button onclick="getLocation()">Permitir</button>
+    <button onclick="backToHome()">Não permitir</button>
 
     Read more: http://www.linhadecodigo.com.br/artigo/3653/usando-geolocalizacao-com-html5.aspx#ixzz7EOHEtfmd
     <title>Add Map</title>
@@ -14,9 +15,34 @@
             /* The height is 400 pixels */
             width: 100%;
             /* The width is the width of the web page */
+            display: none;
         }
     </style>
+
+</head>
+
+<body>
+    <h3>Location Map by Google</h3>
+
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA5YYJQqGugyiDwoCcvEtIo6ivfzSpR5k&callback=initMap&libraries=&v=weekly"
+        async></script>
     <script>
+        var x = document.getElementById("demo");
+        function getLocation() {
+
+            document.getElementById('map').style.display = "block";
+            initMap();
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+        }
+
         // Initialize and add the map
         function initMap() {
             // The location of Uluru
@@ -39,29 +65,14 @@
                 map: map,
             });
         }
-    </script>
-</head>
 
-<body>
-    <h3>My Google Maps Demo</h3>
-    <!--The div element for the map -->
-    <div id="map"></div>
-
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA5YYJQqGugyiDwoCcvEtIo6ivfzSpR5k&callback=initMap&libraries=&v=weekly"
-        async></script>
-    <script>
-        var x = document.getElementById("demo");
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            }
-            else { x = window.location.href="./" }
-        }
         function showPosition(position) {
             x.innerHTML = "Latitude: " + position.coords.latitude +
                 "<br>Longitude: " + position.coords.longitude;
+        }
+
+        function backToHome() {
+            if (window.location.pathname="./index.html") {}
         }
 
         // Read more: http://www.linhadecodigo.com.br/artigo/3653/usando-geolocalizacao-com-html5.aspx#ixzz7EOH7WlFu
