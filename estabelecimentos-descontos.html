@@ -24,9 +24,9 @@
 
         <button class="btn-loc" onclick="getLocation()">Permitir</button>
         <button class="btn-loc" onclick="backToHome()">Não permitir</button>
-    </header>
+      </header>
 
-    <section id="map"></section>
+      <section id="map"></section>
 
       <section class="btn-section">
         <a class="btn" href="./vacina.html">Postos de vacinação</a>
@@ -41,6 +41,7 @@
     async></script>
   <script>
     var x = document.getElementById("demo");
+    var markers = [];
     function getLocation() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -66,7 +67,7 @@
         icon: "http://maps.google.com/mapfiles/ms/micons/blue.png"
       });
 
-      UpdateMap();
+      UpdateMap(position.coords.latitude, position.coords.longitude);
 
     }
 
@@ -86,7 +87,7 @@
 
 
 
-    const UpdateMap = () => {
+    const UpdateMap = (ALat, ALng) => {
 
       for (let i = 0; i < response.length; i++) {
         console.log(i);
@@ -97,10 +98,19 @@
         const title = response[i].local;
 
         // The marker, positioned at Uluru
-        new google.maps.Marker({
+        markers[i] = new google.maps.Marker({
           position: { lat: latitude, lng: longitude },
           map: map,
           title: title
+        });
+
+        markers[i].addListener("click", () => {
+          console.log("lat: " + latitude + " Long: " + longitude);
+          console.log("\n " + ALat + " " + ALng);
+          const dist = 6372.795477598 * Math.cos(Math.sin(ALat) * Math.sin(latitude) + Math.cos(ALat) * Math.cos(latitude) * Math.cos(ALng - longitude));
+          console.log(dist);
+          console.log(response[i].nome_estabelecimento);
+          alert("Local: " + response[i].nome_estabelecimento + "\nDistancia: " + (dist / 1000).toFixed(2) + " KM")
         });
       }
 

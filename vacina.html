@@ -20,7 +20,6 @@
         <header>
             <h1>VacinAí</h1>
             <span id="demo">Clique no botão para permitir ou não sua localização</span>
-
             <button class="btn-loc" onclick="getLocation()">Permitir</button>
             <button class="btn-loc" onclick="backToHome()">Não permitir</button>
         </header>
@@ -41,6 +40,7 @@
     <script>
         var markers = [];
         var x = document.getElementById("demo");
+
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
@@ -75,7 +75,7 @@
                 icon: "http://maps.google.com/mapfiles/ms/micons/blue.png",
             });
 
-            UpdateMap();
+            UpdateMap(position.coords.latitude, position.coords.longitude);
         }
 
         function backToHome() {
@@ -94,7 +94,7 @@
         let data = new FormData();
         data.append("resource_id", "dbf660d2-1ee5-451a-94ca-7c316e50d0ad");
 
-        const UpdateMap = () => {
+        const UpdateMap = (ALat, ALng) => {
             for (let i = 0; i < response.length; i++) {
                 console.log(i);
                 console.log(response[i]);
@@ -109,12 +109,17 @@
                     map: map,
                     title: title,
                 });
+
+                markers[i].addListener("click", () => {
+                    console.log("lat: " + latitude + " Long: " + longitude);
+                    console.log("\n " + ALat + " " + ALng);
+                    const dist = 6372.795477598 * Math.cos(Math.sin(ALat) * Math.sin(latitude) + Math.cos(ALat) * Math.cos(latitude) * Math.cos(ALng - longitude));
+                    console.log(dist);
+                    console.log(response[i].Local);
+                    alert("Local: " + response[i].Local + "\nDistancia: " + (dist/1000).toFixed(2) + " KM")
+                });
             }
         };
-
-        const distance = () => {
-
-        }
 
         headers.append("Authorization", "Basic " + (username + ":" + password));
         fetch(url, {
