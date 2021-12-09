@@ -1,3 +1,11 @@
+h1 {
+    font-size: 2em;
+}
+
+span {
+    color: blueviolet;
+}
+
 .main-container-maps {
     text-align: center;
     width: 412px;

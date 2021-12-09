@@ -19,8 +19,8 @@
   <section class="main-container-maps">
     <main>
       <header>
-        <h1>VacinAí</h1>
-        <span id="demo">Clique no botão para permitir ou não sua localização</span>
+        <h1>Vacin<span>Aí</span></h1>
+        <p>Clique no botão para permitir ou não sua localização</p>
 
         <button class="btn-loc" onclick="getLocation()">Permitir</button>
         <button class="btn-loc" onclick="backToHome()">Não permitir</button>
@@ -35,12 +35,16 @@
     </main>
   </section>
 
+  <footer>
+    <p>Powered by <span>DevBox</span>&#128151</p>
+</footer>
+
   <!-- Api -->
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA5YYJQqGugyiDwoCcvEtIo6ivfzSpR5k&callback=initMap&libraries=&v=weekly"
     async></script>
   <script>
-    var x = document.getElementById("demo");
+    // var x = document.getElementById("demo");
     var markers = [];
     function getLocation() {
       if (navigator.geolocation) {
@@ -49,8 +53,8 @@
     }
 
     function showPosition(position) {
-      x.innerHTML = "Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude;
+      // x.innerHTML = "Latitude: " + position.coords.latitude +
+      //   "<br>Longitude: " + position.coords.longitude;
 
       var mapProp = {
         center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
