@@ -1,60 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
+  <head>
     <title>VacinAí</title>
-    
+
     <!-- Metadate tags -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./assets/styles/reset.css">
-    <link rel="stylesheet" href="./assets/styles/main.css">
-    <link rel="stylesheet" href="./assets/styles/estabelecimentos-descontos.css.css">
-</head>
+    <link rel="stylesheet" href="./assets/styles/reset.css" />
+    <link rel="stylesheet" href="./assets/styles/main.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/estabelecimentos-descontos.css.css"
+    />
+  </head>
 
-<body>
-  
-    <h1>VacinAí</h1>
+  <body>
+    <section class="main-section-container">
+        <main>    
+            <h1>Descontos de vacinação</h1>
+            <section id="map"></section>
 
-    <a href="./teste/teste.html">Clica aqui</a>
-
-    <!-- Main Section -->
-    <section>
-        <h1>Descontos de vacinação</h1>
-        
-        <div id="map"></div>
-
-        <a class="btn" href="./estabelecimentos-descontos.html">Postos de vacinação</a>
-        <a class="btn" href="./index.html">Voltar</a>
+            <section class="btn-section">
+            <a class="btn" href="./estabelecimentos-descontos.html">Postos de vacinação</a>
+            <a class="btn-back-home" href="./index.html">Voltar</a>
+            </section>
+        </main>
     </section>
 
     <!-- Api -->
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA5YYJQqGugyiDwoCcvEtIo6ivfzSpR5k&callback=initMap&libraries=&v=weekly"
-        async>
-        </script>
-
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA5YYJQqGugyiDwoCcvEtIo6ivfzSpR5k&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
     <script>
-        // Initialize and add the map
-        function initMap() {
-            let data = {
-                resource_id: '297515ac-224d-446d-86b8-5cb3a431a7aa', // the resource id
-                limit: 5, // get 5 results
-                q: 'jones' // query for 'jones'
-            };
-            $.ajax ({
-                    url: 'http://dados.recife.pe.gov.br/api/3/action/datastore_search',
-                    data: data,
-                    dataType: 'jsonp',
-                    success: function(data) {
-                    alert('Total de resultados encontrados: ' + data.result.total);
-                }
-            });
-        }
+      // Initialize and add the map
+      function initMap() {
+        let data = {
+          resource_id: "297515ac-224d-446d-86b8-5cb3a431a7aa", // the resource id
+          limit: 5, // get 5 results
+          q: "jones", // query for 'jones'
+        };
+        $.ajax({
+          url: "http://dados.recife.pe.gov.br/api/3/action/datastore_search",
+          data: data,
+          dataType: "jsonp",
+          success: function (data) {
+            alert("Total de resultados encontrados: " + data.result.total);
+          },
+        });
+      }
     </script>
-</body>
-
+  </body>
 </html>

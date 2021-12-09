@@ -1,4 +1,11 @@
-h1 {
-  text-align: center;
-  font-size: 26px;
+.main-container {
+    
+}
+
+.btn-section a {
+    text-align: center;
+    height: 50px;
+    width: 200px;
+    margin: 10px;   
+    display: block;
 }

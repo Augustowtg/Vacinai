@@ -1,11 +1,29 @@
 #map {
     height: 400px;
-    /* The height is 400 pixels */
     width: 70vh;
-    /* The width is the width of the web page */
+}
+
+.main-section-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-section {
+    border: 1px solid #ececec;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    width: 400px;
+    height: 640px;
+    background-color: #f4f4f4;
 }
 
 .btn {
+    line-height: 30px;
     padding: 10px;
     border: 1px solid #7B1FA2;
     color: #7B1FA2;
@@ -20,6 +38,25 @@
     color: #f4f4f4;
 }
 
-h1 {
+.btn-back-home {
+    line-height: 30px;
+    padding: 10px;
+    border: 1px solid #d1d1d1;
     color: #625c5c;
+    background-color: #ececec70;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.btn-back-home:hover {
+    background-color: #ececec;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 769px) {
+    .box-section {
+        width: 640px;
+        height: 640px;
+    }
 }
