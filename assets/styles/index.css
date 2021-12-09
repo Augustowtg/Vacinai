@@ -1,9 +1,34 @@
-#main-section {
+.main-section-container {
     width: 100vw;
     height: 100vh;
-    background: #444444;
-    /* display: flex; */
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.box-section {
+    border: 1px solid #ececec;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    width: 400px;
+    height: 640px;
+    background-color: #f4f4f4;
+}
+
+.btn-section a {
+    line-height: 125px;
+    place-items: start;
+    place-self: start;
+    height: 150px;
+    margin: 10px;
+    display: block;
+}
+
+@media screen and (min-width: 769px) {
+     .box-section {
+        width: 640px;
+        height: 640px;
+    }
 }
