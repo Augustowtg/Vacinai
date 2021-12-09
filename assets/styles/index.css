@@ -1,9 +1,8 @@
-#main-section {
-    width: 100vw;
-    height: 100vh;
-    background: #444444;
-    /* display: flex; */
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.btn-section a {
+    line-height: 125px;
+    place-items: start;
+    place-self: start;
+    height: 150px;
+    margin: 10px;
+    display: block;
 }

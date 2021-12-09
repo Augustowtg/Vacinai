@@ -1,0 +1,11 @@
+.main-container {
+    
+}
+
+.btn-section a {
+    text-align: center;
+    height: 50px;
+    width: 200px;
+    margin: 10px;   
+    display: block;
+}
