@@ -1,3 +1,11 @@
+h1 {
+    font-size: 2em;
+}
+
+span {
+    color: blueviolet;
+}
+
 .btn-section-index a {
     border-radius: 7px;
     line-height: 125px;
