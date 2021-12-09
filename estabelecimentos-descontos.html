@@ -110,7 +110,21 @@
           const dist = 6372.795477598 * Math.cos(Math.sin(ALat) * Math.sin(latitude) + Math.cos(ALat) * Math.cos(latitude) * Math.cos(ALng - longitude));
           console.log(dist);
           console.log(response[i].nome_estabelecimento);
+
+          let pos1 = { lat: ALat, lng: ALng };
+          let pos2 = { lat: latitude, lng: longitude };
+
+          var line = new google.maps.Polyline(
+            {
+              path: [pos1, pos2],
+              map: map,
+              strokeColor: '#ff1a1a',
+              geodesic: true,
+
+            })
           alert("Local: " + response[i].nome_estabelecimento + "\nDistancia: " + (dist / 1000).toFixed(2) + " KM")
+
+
         });
       }
 
