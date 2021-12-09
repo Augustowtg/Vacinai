@@ -16,20 +16,22 @@
 </head>
 
 <body>
-  <section class="main-section-container">
+  <section class="main-container-maps">
     <main>
       <header>
         <h1>VacinAí</h1>
-        <p id="demo">Clique no botão para receber sua localização em Latitude e Longitude:</p>
+        <span id="demo">Clique no botão para permitir ou não sua localização</span>
 
-        <button onclick="getLocation()">Permitir</button>
-        <button onclick="backToHome()">Não permitir</button>
+        <button class="btn-loc" onclick="getLocation()">Permitir</button>
+        <button class="btn-loc" onclick="backToHome()">Não permitir</button>
     </header>
 
-    <div id="map"></div>
+    <section id="map"></section>
 
-    <a class="btn" href="./estabelecimentos-descontos.html">Postos de vacinação</a>
-    <a class="btn" href="./index.html">Voltar</a>
+      <section>
+        <a class="btn-back-home" href="./index.html">Voltar</a>
+        <a class="btn" href="./vacina.html">Postos de vacinação</a>
+      </section>
     </main>
   </section>
 
@@ -56,14 +58,12 @@
       };
 
       map = new google.maps.Map(document.getElementById('map'), mapProp);
-      var image = './assets/img/pin.png';
 
       new google.maps.Marker({
         position: { lat: position.coords.latitude, lng: position.coords.longitude },
         map: map,
         title: 'pin',
-        icon: image,
-        url: 'pin.html',
+        icon: "http://maps.google.com/mapfiles/ms/micons/blue.png"
       });
 
       UpdateMap();

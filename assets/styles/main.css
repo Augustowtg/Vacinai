@@ -1,6 +1,6 @@
 #map {
-    height: 400px;
-    width: 70vh;
+    height: 450px;
+    margin: 30px;
 }
 
 .main-section-container {
@@ -51,6 +51,18 @@
 .btn-back-home:hover {
     background-color: #ececec;
     cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn-loc {
+    background-color: #d7d7d79c;
+    border: none;
+    margin-top: 10px;
+    padding: 15px;
+}
+
+.btn-loc:hover {
+    background-color: #d7d7d7;
     text-decoration: underline;
 }
 
