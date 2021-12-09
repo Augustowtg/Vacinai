@@ -1,4 +1,5 @@
-.btn-section a {
+.btn-section-index a {
+    border-radius: 7px;
     line-height: 125px;
     place-items: start;
     place-self: start;

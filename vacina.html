@@ -18,7 +18,9 @@
     <section class="main-container-maps">
       <header>
         <h1>VacinAí</h1>
-        <span id="demo">Clique no botão para permitir ou não sua localização</span>
+        <span id="demo"
+          >Clique no botão para permitir ou não sua localização</span
+        >
 
         <button class="btn-loc" onclick="getLocation()">Permitir</button>
         <button class="btn-loc" onclick="backToHome()">Não permitir</button>
@@ -26,11 +28,11 @@
 
       <section id="map"></section>
 
-      <section>
-        <a class="btn-back-home" href="./index.html">Voltar</a>
+      <section class="btn-section">
         <a class="btn" href="./estabelecimentos-descontos.html"
-          >Estabelecimentos Com Descontos</a
+          >Descontos</a
         >
+        <a class="btn-back-home" href="./index.html">Voltar</a>
       </section>
     </section>
 
@@ -73,7 +75,7 @@
           },
           map: map,
           title: "pin",
-          icon: "http://maps.google.com/mapfiles/ms/micons/blue.png"
+          icon: "http://maps.google.com/mapfiles/ms/micons/blue.png",
         });
 
         UpdateMap();

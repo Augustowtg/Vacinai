@@ -3,3 +3,9 @@
     width: 412px;
     margin: 0 auto;
 }
+
+@media screen and (min-width: 769px) {
+    .main-container-maps {
+        width: 640px;
+    }
+}

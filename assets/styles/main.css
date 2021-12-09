@@ -30,6 +30,16 @@
     background-color: transparent;
     font-weight: bold;
     transition-duration: 0.5s;
+    display: block;
+}
+
+.btn-section a {
+    border-radius: 10px;
+    text-align: center;
+    height: 50px;
+    width: 200px;
+    margin: 10px auto;
+    display: block;
 }
 
 .btn:hover {
@@ -46,6 +56,7 @@
     background-color: #ececec70;
     font-weight: bold;
     transition-duration: 0.5s;
+    display: block;
 }
 
 .btn-back-home:hover {
