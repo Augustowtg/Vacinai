@@ -1,8 +1,5 @@
 body {
-    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-    background-size: 400% 400%;
-    position: relative;
-    animation: change 10s ease-in-out infinite;
+    background-color: white;
 }
 
 footer {
@@ -47,9 +44,9 @@ footer span {
 .btn {
     line-height: 30px;
     padding: 10px;
-    border: 1px solid #c87de9;
-    color: #7B1FA2;
-    background-color: #c87de9;
+    border: 1px solid black;
+    color: white;
+    background-color: black;
     font-weight: bold;
     transition-duration: 0.5s;
     display: block;
