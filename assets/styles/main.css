@@ -42,11 +42,11 @@ footer span {
 }
 
 .btn {
-    line-height: 30px;
-    padding: 10px;
-    border: 1px solid black;
+    line-height: 10px;
+    padding: 10px 15px;
+    border: 1px solid #7B1FA2;
     color: white;
-    background-color: black;
+    background-color: #7B1FA2;
     font-weight: bold;
     transition-duration: 0.5s;
     display: block;
@@ -62,9 +62,10 @@ footer span {
 }
 
 .btn:hover {
-    background-color: #7B1FA2;
+    border-color: #7B1FA2;
+    background-color: transparent;
     cursor: pointer;
-    color: #f4f4f4;
+    color:  #7B1FA2;
 }
 
 .btn-back-home {
